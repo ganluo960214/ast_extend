@@ -5,7 +5,7 @@ import (
 	"go/token"
 )
 
-// AstExtFindStructByName find struct in *ast.File
+// FindStructByName find struct in *ast.File
 //
 // Parameter
 // StructName: try to find the struct name
@@ -17,9 +17,9 @@ import (
 //
 // Example
 // func F() {}
-// AstExtFindStructByName(f,"F")
-// */
-func AstExtFindStructByName(f *ast.File, StructName string) (*ast.TypeSpec, *ast.StructType, bool) {
+// FindStructByName(f,"F")
+//
+func FindStructByName(f *ast.File, StructName string) (*ast.TypeSpec, *ast.StructType, bool) {
 	for _, d := range f.Decls {
 		gd, ok := d.(*ast.GenDecl)
 		if ok == false || gd.Tok != token.TYPE {

@@ -5,16 +5,16 @@ easy use *ast.File.
 # Catalog
 
 ## [Struct](#Struct)
-### [AstExtFindStructByName](#AstExtFindStructByName)
+### [FindStructByName](#FindStructByName)
 
 ## [Function](#Function)
-### [AstExtFindFuncByName](#AstExtFindFuncByName)
+### [FindFuncByName](#FindFuncByName)
 
 
 ## Struct
-### AstExtFindStructByName
+### FindStructByName
 ```
-AstExtFindStructByName find struct in *ast.File
+FindStructByName find struct in *ast.File
 
 Parameter
 StructName: try to find the struct name
@@ -28,14 +28,14 @@ bool           : is found struct
 Example
 ```go
 func F() {}
-AstExtFindStructByName(f,"F")
+FindStructByName(f,"F")
 ```
 
 
 ## Function
-### AstExtFindFuncByName
+### FindFuncByName
 ```
-AstExtFindFuncByName(f *ast.File, ReceiverType, FuncName string) (*ast.FuncDecl, bool)
+FindFuncByName(f *ast.File, ReceiverType, FuncName string) (*ast.FuncDecl, bool)
 
 Parameter
 ReceiverType : method pass the receiver type if there is a receiver or empty string
@@ -50,7 +50,7 @@ bool          : return true if found function or false
 Example Function Without Receiver 
 ```go
 func F() {}
-func AstExtFindFuncByName(f,"","F")
+func FindFuncByName(f,"","F")
 ```
 
 Example Function With Receiver
@@ -60,5 +60,5 @@ func (idea) F(){}
 func (*idea) F(){}
 func (i idea) F(){}
 func (i *idea) F(){}
-func AstExtFindFuncByName(f,"idea","F")
+func FindFuncByName(f,"idea","F")
 ```

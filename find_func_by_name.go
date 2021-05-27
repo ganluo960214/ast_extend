@@ -2,7 +2,7 @@ package ast_extend
 
 import "go/ast"
 
-// AstExtFindFuncByName find function in *ast.File
+// FindFuncByName find function in *ast.File
 //
 // Parameter
 // ReceiverType: pass the receiver type if there is a receiver or empty string
@@ -15,13 +15,13 @@ import "go/ast"
 // Example
 // function without receiver:
 // func F() {}
-// AstExtFindFuncByName(f,"","F")
+// FindFuncByName(f,"","F")
 // function with receiver:
 // type idea struct{}
 // func (idea) F(){}
-// AstExtFindFuncByName(f,"idea","F")
+// FindFuncByName(f,"idea","F")
 // */
-func AstExtFindFuncByName(f *ast.File, ReceiverType, FuncName string) (*ast.FuncDecl, bool) {
+func FindFuncByName(f *ast.File, ReceiverType, FuncName string) (*ast.FuncDecl, bool) {
 	for _, d := range f.Decls {
 		d, ok := d.(*ast.FuncDecl)
 		if ok == false {
