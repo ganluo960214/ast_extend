@@ -4,10 +4,32 @@ easy use *ast.File.
 
 # Catalog
 
+## [Struct](#Struct)
+### [AstExtFindStructByName](#AstExtFindStructByName)
+
 ## [Function](#Function)
 ### [AstExtFindFuncByName](#AstExtFindFuncByName)
 
 
+## Struct
+### AstExtFindStructByName
+```
+AstExtFindStructByName find struct in *ast.File
+
+Parameter
+StructName: try to find the struct name
+
+Return
+*ast.TypeSpec  : struct declaration
+*ast.StructType: struct content declaration
+bool           : is found struct
+```
+
+Example
+```go
+func F() {}
+AstExtFindStructByName(f,"F")
+```
 
 
 ## Function
