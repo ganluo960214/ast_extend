@@ -4,7 +4,6 @@ import (
 	"go/ast"
 	"go/parser"
 	"go/token"
-	"log"
 	"testing"
 )
 
@@ -52,7 +51,7 @@ func FindConstByTypeNameCase(tb testing.TB) {
 	names := []string{"TypeCA", "TypeCB", "TypeCC", "TypeCD", "TypeCE", "TypeCF"}
 	for i, cv := range cvs {
 		if names[i] != cv.Names[0].Name {
-			log.Fatalf("name not match:\nexcept:%s\tnow:%s", names[i], cv.Names[0].Name)
+			tb.Fatalf("name not match:\nexcept:%s\tnow:%s", names[i], cv.Names[0].Name)
 		}
 	}
 
